@@ -1,0 +1,129 @@
+/*** Body */
+* {
+    font-family: "Noto Sans Display", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    background-color: rgb(25,25,25);
+}
+
+/*** Barre de navigation*/
+#navTop {
+    position: relative;
+    background : linear-gradient(270deg, rgb(40, 40, 40), rgb(0,0,0));
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    align-items: center;
+    justify-items: center;
+    color: white;
+    width: 100%;
+    height: 10vh;
+    z-index: 5100;
+
+    label {
+        display: none;
+    }
+    img {
+        height: 10vh;
+        float: left;
+    }
+    span{
+        line-height: 10vh;
+        font-size: 1.3em;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-style: italic;
+        vertical-align: center;
+    }
+}
+
+.recherche {
+    padding: 0.5em 1em;
+    border-radius: 25px;
+    width: 50%;
+    min-width: 300px;
+    margin: 0 auto;
+    border: none;
+    box-shadow: inset 0 0 30px rgb(0, 0, 0, 0.2);
+}
+
+/*** Menu amovible de droite */
+#navRight {
+    box-sizing: border-box;
+    position: absolute;
+    top: 10vh;
+    right: -300px;
+    background-color: rgb(0, 0, 0, 0.86);
+    width: 300px;
+    height: 90vh;
+    z-index: 50;
+    transition: all 200ms;
+
+    input {
+        display: none;
+    }
+
+    .recherche {
+        margin: 1em auto;
+    }
+
+    .connection {
+        display: none;
+    }
+}
+
+#navRight.navRightOpen {
+    right: 0;
+}
+
+
+
+/*** Media Query pour la version mobile */
+@media (orientation: portrait) {
+    body {
+        width: 100vw;
+    }
+
+    #navTop {
+        grid-template-columns: 5fr 1fr;
+
+        #navButton {
+
+            .connection {
+                display: none;
+            }
+        }
+    }
+
+    #navRight {
+        position: absolute;
+        top: -100vh;
+        right: 0;
+        > .connection{
+            display: block;
+        }
+    }
+
+    #navRight.navRightOpen {
+        top: 10vh;
+
+    }
+
+    #navTop {
+        input {
+            display: none;
+        }
+    }
+
+    #navRight {
+        input {
+            display: block;
+            width: 80%;
+            min-width: 80%;
+        }
+    }
+}
