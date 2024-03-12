@@ -9,37 +9,41 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/modules.css">
 </head>
 
 <body>
 
     <nav id="navTop">
-        <div>
-        <img src="./Pictures/Logo-primeflix-plus.png" alt="Logo PrimeFlix +" />
-        <span>Films</span>
+        <div class="logo">
+            <img src="./Pictures/Logo-primeflix-plus.png" alt="Logo PrimeFlix +" />
+            <span>Films</span>
         </div>
         <label for="recherche">Recherche: </label>
         <input class="recherche" type="texte" name="recherche" autocomplete="off" placeholder="Cherchez un film ou une série">
-        <div id="navButton">
-            <button id="menu">Menu</button>
-            <button class="connection">Connection</button>
-        </div>
+        <button class="connection">Connection</button>
+        <button id="menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </button>
     </nav>
     <nav id="navRight">
-    <button class="connection">Connection</button>
         <input class="recherche" type="texte" name="recherche" autocomplete="off" placeholder="Cherchez un film ou une série">
         <button id="films">Films</button>
-        <button>Séries</button>
+        <button id="series">Séries</button>
+        <button class="connection">Connection</button>
     </nav>
-    <header>
+    <header id="filmAuCine">
         <button>Détails</button>
         <p>Résumé</p>
     </header>
     <main>
-        <h2>
-            Les films et séries du moment
-        </h2>
         <section class="duMoment">
+            <h2>
+                Les films du moment
+            </h2>
+            <ul id="movieList"></ul>
 
         </section>
 
@@ -51,6 +55,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="./Javascript/navigation.js"></script>
+    <script src="./Javascript/requetes.js"></script>
 </body>
 
 </html>

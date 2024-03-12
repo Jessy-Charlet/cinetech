@@ -6,32 +6,43 @@
 body {
     margin: 0;
     padding: 0;
-    overflow: hidden;
     width: 100%;
-    background-color: rgb(25,25,25);
+    background-color: #1b1b1b;
+    height: fit-content;
+}
+
+main {
+    background-color: white;
+}
+
+h2 {
+    padding: 1em 3em;
+    margin: 0;
 }
 
 /*** Barre de navigation*/
 #navTop {
     position: relative;
-    background : linear-gradient(270deg, rgb(40, 40, 40), rgb(0,0,0));
+    background: linear-gradient(0deg, #1b1b1b, rgb(0, 0, 0));
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 1fr 1fr 0.8fr 0.2fr;
     align-items: center;
     justify-items: center;
     color: white;
     width: 100%;
     height: 10vh;
-    z-index: 5100;
+    z-index: 100;
 
     label {
         display: none;
     }
+
     img {
         height: 10vh;
         float: left;
     }
-    span{
+
+    span {
         line-height: 10vh;
         font-size: 1.3em;
         font-weight: 700;
@@ -44,7 +55,7 @@ body {
 .recherche {
     padding: 0.5em 1em;
     border-radius: 25px;
-    width: 50%;
+    width: 80%;
     min-width: 300px;
     margin: 0 auto;
     border: none;
@@ -55,13 +66,14 @@ body {
 #navRight {
     box-sizing: border-box;
     position: absolute;
-    top: 10vh;
-    right: -300px;
-    background-color: rgb(0, 0, 0, 0.86);
-    width: 300px;
-    height: 90vh;
+    top: -20vh;
+    right: 0;
+    background-color: #1b1b1b;
+    width: 100%;
+    height: fit-content;
     z-index: 50;
     transition: all 200ms;
+    padding: 1em;
 
     input {
         display: none;
@@ -77,7 +89,41 @@ body {
 }
 
 #navRight.navRightOpen {
-    right: 0;
+    top: 10vh;
+}
+
+#menu {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3px;
+    border: none;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+
+    div {
+        background-color: white;
+        height: 7px;
+        border-radius: 3px;
+        transition: all 200ms;
+    }
+}
+
+.menuRotate1 {
+    transform-origin: top right;
+    transform: rotate(-45deg);
+    background-color: red !important;
+}
+
+.menuRotate2 {
+    height: 0px !important;
+}
+
+.menuRotate3 {
+    transform-origin: bottom right;
+    transform: rotate(45deg);
+    background-color: red !important;
 }
 
 
@@ -91,39 +137,31 @@ body {
     #navTop {
         grid-template-columns: 5fr 1fr;
 
-        #navButton {
-
-            .connection {
-                display: none;
-            }
+        .connection {
+            display: none;
         }
-    }
 
-    #navRight {
-        position: absolute;
-        top: -100vh;
-        right: 0;
-        > .connection{
-            display: block;
-        }
-    }
-
-    #navRight.navRightOpen {
-        top: 10vh;
-
-    }
-
-    #navTop {
         input {
             display: none;
         }
     }
 
     #navRight {
+
+        >.connection {
+            display: block;
+        }
+
         input {
             display: block;
             width: 80%;
             min-width: 80%;
         }
+
+        .navRightOpen {
+            top: 10vh;
+
+        }
     }
+
 }
