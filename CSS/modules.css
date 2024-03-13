@@ -1,9 +1,10 @@
-#movieList {
+#movieList,
+#autocompleteResults {
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
     margin: 0;
-    padding: 0;
+    padding: 2em 0;
     justify-content: center;
     align-items: center;
 
@@ -35,6 +36,8 @@
         border-radius: 10px;
         background-color: rgb(255, 255, 255);
         transition: all 200ms;
+        color: black;
+        z-index: 11;
     }
 
     li:hover h3 {
@@ -56,27 +59,28 @@
         border-radius: 0 0 0 50%;
         padding: 1em;
         font-weight: bold;
+        z-index: 10;
     }
 }
 
-#filmAuCine {
-    padding:0;
-    margin:0;
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
-    li{
-        list-style: none;
-    }
-
+#autocompleteResults {
+    color: white;
     img {
-        height: 1500px;
-        display:inline;
+        width: 10vw;
+        height: 14vw;
+        min-width: 100px;
+        min-height: 140px;
     }
+}
 
-    h3{
-       font-size: 4em;
-       color: white; 
-       padding: 2em;
+
+@media (orientation: portrait) {
+    #autocompleteResults {
+        padding: 9em 0 2em 0;
+        color: white;
+
+        h3 {
+            font-size: 0.8em;
+        }
     }
 }

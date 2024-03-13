@@ -1,0 +1,39 @@
+#backdrop{
+    background-size: cover;
+    background-position: center;
+    color: black;
+    height: 700px;
+    position: relative;
+    div {
+        margin-left: 25vw;
+        padding-top: 200px
+    }
+}
+
+#synopsis{
+    padding: 3em;
+    background-color: white;
+    margin: 0;
+}
+
+#affiche{
+    width: 20%;
+    position: absolute;
+    bottom : 0;
+    left: 2vw;
+    translate: 0 10px;
+    border: 10px solid white;
+    box-shadow: -10px -10px 20px rgb(0,0,0,0.5);
+}
+
+#titre{
+    font-size: 4em;
+    color: white;
+    text-shadow: 1px 1px 5px black;
+}
+
+#date{
+    padding: 0.5em 1em;
+    background-color: white;
+    border-radius: 10px 0;
+}
