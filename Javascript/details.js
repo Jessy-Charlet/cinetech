@@ -1,32 +1,59 @@
+/*** On récupère l'ID du film grace au GET de l'URL */
 var parsedUrl = new URL(window.location.href);
-var movieId = parsedUrl.searchParams.get("id")
-console.log(movieId);
+var movieId = parsedUrl.searchParams.get("id");
 
 
+const detailsMovie = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&append_to_response=images&language=fr-FR&include_image_language=fr,null`;
+const similarMovie = `https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${apiKey}&append_to_response=images&language=fr-FR&include_image_language=fr,null`;
 
 
+async function requeteTMDB(url) {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  }
+  catch (error) {
+    console.error('Erreur lors de la récupération des données:', error.message);
+  }
+}
 
-  // URL de l'endpoint des détails d'un film
-const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&append_to_response=images&language=fr-FR&include_image_language=fr,null`;
-
-// Faire la requête HTTP GET
-fetch(url)
-  .then(response => {
-    // Vérifier si la requête a réussi (code de statut 200)
-    if (!response.ok) {
-      throw new Error(`Erreur lors de la requête : ${response.status}`);
-    }
-    return response.json();
-  })
-  .then(movieData => {
-    $("#titre").text(movieData.title);
-    $("#synopsis").text(movieData.overview);
-    $("#date").text(movieData.release_date);
-    //var imageUrl = `https://image.tmdb.org/t/p/w500${movieData.backdrop_path}`;
-    $("#affiche").attr("src", `https://image.tmdb.org/t/p/w500/${movieData.poster_path}`);
-    $("#affiche").attr("alt", movieData.title);
-    $("#backdrop").css("background-image", `url('https://image.tmdb.org/t/p/w1280/${movieData.backdrop_path}')`)
-  })
-  .catch(error => {
-    console.error(error);
+requeteTMDB(detailsMovie).then(data => {
+  console.log(data);
+  $("#block h1").text(data.title);
+  $("#block h2").text(data.original_title)
+  $("#tagLine").text(data.tagline);
+  $("#note").text(data.vote_average);
+  $("#nbVote").text(data.vote_count);
+  $("#synopsis").text(data.overview);
+  $("#budget").text(data.budget);
+  $("#date").text(data.release_date);
+  data.production_companies.forEach(element => {
+    $("#compagnies").append(`<li>${element.name}</li>`)
   });
+  console.log(data.production_companies)
+  $("#affiche").attr("src", `https://image.tmdb.org/t/p/w500/${data.poster_path}`);
+  $("#affiche").attr("alt", data.title);
+  $("#backdrop").css("background-image", `url('https://image.tmdb.org/t/p/w1280/${data.backdrop_path}')`)
+});
+
+
+/*
+requeteTMDB(similarMovie).then(data => {
+  console.log(data);
+  data.results.forEach(movie => {
+    const listItem = document.createElement('li');
+
+
+
+    listItem.appendChild(urlElement);
+    urlElement.appendChild(imageElement);
+    listItem.appendChild(titleElement);
+    listItem.appendChild(ratingElement);
+
+    filmsSimilaires.appendChild(listItem);
+
+  })
+});*/
+
+
