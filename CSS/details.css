@@ -38,6 +38,7 @@
             }
 
             #tagLine {
+                grid-row: 3/5;
                 color: black;
                 background-color: white;
                 padding: 0.5em;
@@ -46,11 +47,26 @@
                 font-size: 1.2em;
             }
 
-            #date {
-                padding: 0.5em 1em;
+            #date, #budget, #compagnies{
+                padding: 1em 1em;
                 background-color: #1b1b1b;
                 border-radius: 10px 0;
-                place-self: start;
+                place-self: start center;
+                span, li{
+                    color: black;
+                    background-color: white;
+                    border-radius: 10px 0;
+                    padding: 0.2em 1em;
+                    margin-left: 1em;
+                }
+                div{
+                    margin-top: 1em;
+                }
+            }
+
+            #budget{
+                place-self: start center;
+                text-align: right;
             }
 
             h2 {
@@ -62,31 +78,31 @@
             }
 
             #note {
+
                 background-color: #1b1b1b;
-                font-size: 2em;
-                width: 3em;
-                height: 3em;
+                font-size: 4em;
+                width: 2em;
+                height: 2em;
                 border-radius: 50%;
                 text-align: center;
-                line-height: 3em;
+                font-weight: bold;
                 border: 5px solid white;
                 place-self: center;
+                div{
+                    font-size: 0.25em;
+                    line-height: 0.25em;
+                }
             }
 
             #compagnies {
                 grid-column: 1 / 3;
-                margin: 0;
-                padding: 0;
-                height: max-content;
+                padding: 1em;
                 li {
-                    box-sizing: border-box;
-                    font-size: 0.8em;
                     display: inline;
                     list-style: none;
-                    background-color: #1b1b1b;
-                    padding: 0.5em 1em;
-                    margin: 0 1em 0 0;
-                    border-radius: 10px;
+                }
+                div{
+                    display: inline;
                 }
             }
         }
@@ -107,4 +123,8 @@
         margin: 0;
         padding: 0;
     }
+}
+
+#filmsSimilaires{
+    background-color: white;
 }

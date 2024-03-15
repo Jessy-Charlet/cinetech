@@ -21,7 +21,10 @@
             <span>Films</span>
         </div>
         <label for="recherche">Recherche: </label>
-        <input id="recherche" class="recherche" type="texte" name="recherche" autocomplete="off" placeholder="Cherchez un film ou une série">
+        <div>
+            <input id="recherche" class="recherche" type="texte" name="recherche" autocomplete="off" placeholder="Cherchez un film ou une série">
+            <div id="croix">❌</div>
+        </div>
         <button class="connection">Connection</button>
         <button id="menu">
             <div></div>
@@ -30,9 +33,13 @@
         </button>
     </nav>
     <nav id="navRight">
-        <input id="rechercheM" class="recherche" type="texte" name="rechercheM" autocomplete="off" placeholder="Cherchez un film ou une série">
+        <div>
+            <input id="rechercheM" class="recherche" type="texte" name="rechercheM" autocomplete="off" placeholder="Cherchez un film ou une série">
+            <div id="croixM">❌</div>
+        </div>
+        <div id="autocompleteResultsM" class="autocomplete-results">Aucun résultat...</div>
         <button id="films">Films</button>
         <button id="series">Séries</button>
         <button class="connection">Connection</button>
     </nav>
-    <div id="autocompleteResults" class="autocomplete-results">Aucun résultat...</div>
+    <ul id="autocompleteResults" class="autocomplete-results">Aucun résultat...</ul>

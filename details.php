@@ -9,10 +9,9 @@ include('./header.php');
             <h2>Titre original</h2>
             <div id="note">Note</div>
             <div id="tagLine">Tagline</div>
-            <div id="nbVote">Nombre de votes</div>
             <div id="date">Date</div>
             <div id="budget">Budget / Revenues</div>
-            <ul id="compagnies"></ul>
+            <ul id="compagnies"><div>Compagnies</div></ul>
         </div>
     </div>
 </header>
@@ -23,9 +22,9 @@ include('./header.php');
 <section id="acteurs">
     Liste des acteurs...
 </section>
-<section id="filmsSimilaires">
-    <h3>Les films similaires</h3>
-    <ul></ul>
+<section id="">
+    <h2>Les films similaires</h2>
+    <ul id="movieListS"></ul>
 </section>
 <main>
 

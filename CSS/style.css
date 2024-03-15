@@ -16,7 +16,7 @@ main {
 }
 
 h2 {
-    padding: 1em 3em 0 3em;
+    padding: 1em 3em 0 3vw;
     margin: 0;
 }
 
@@ -50,15 +50,29 @@ h2 {
         font-style: italic;
         vertical-align: center;
     }
-    .connection{
+
+    .connection {
         justify-self: end;
+    }
+
+    div:nth-child(3) {
+        width: 100%;
+        position: relative;
+    }
+
+    #croix {
+        position: absolute;
+        right: 1em;
+        top: 50%;
+        translate: 0 -50%;
     }
 }
 
 .recherche {
+    box-sizing: border-box;
     padding: 0.5em 1em;
     border-radius: 25px;
-    width: 80%;
+    width: 100%;
     min-width: 300px;
     margin: 0 auto;
     border: none;
@@ -84,19 +98,31 @@ h2 {
         display: none;
     }
 
-    .recherche {
+    #rechercheM.recherche {
         margin: 1em auto;
+        display: none;
     }
 
     .connection {
         display: none;
     }
+
+    #croixM {
+        display: none;
+    }
+
+    #autocompleteResultsM {
+        display: none;
+    }
+
 }
 
+/*** Ouverture du menu droite */
 #navRight.navRightOpen {
     top: 10vh;
 }
 
+/*** Menu burger */
 #menu {
     display: grid;
     grid-template-columns: 1fr;
@@ -131,9 +157,9 @@ h2 {
     background-color: red !important;
 }
 
-
-Footer{
- color: white;
+/*** Footer */
+Footer {
+    color: white;
 }
 
 
@@ -150,7 +176,11 @@ Footer{
             display: none;
         }
 
-        input {
+        >div:nth-child(3) {
+            display: none;
+        }
+
+        .recherche {
             display: none;
         }
     }
@@ -161,16 +191,33 @@ Footer{
             display: block;
         }
 
-        input {
+        #rechercheM.recherche {
             display: block;
-            width: 80%;
-            min-width: 80%;
+            width: 100%;
+            min-width: 100%;
         }
 
         .navRightOpen {
             top: 10vh;
 
         }
-    }
 
+        #croixM {
+            display: block;
+            position: absolute;
+            right: 1em;
+            top: 50%;
+            translate: 0 -50%;
+        }
+
+        #autocompleteResultsM {
+            display: block;
+        }
+        div:first-child{
+            position: relative;
+            width: 80%;
+            margin: auto;
+        }
+
+    }
 }

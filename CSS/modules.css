@@ -1,5 +1,5 @@
 #movieList,
-#autocompleteResults {
+#autocompleteResults, #movieListS, #autocompleteResultsM {
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
@@ -15,7 +15,7 @@
         overflow: hidden;
     }
 
-    img {
+    img, a {
         width: 15vw;
         height: 22vw;
         min-width: 150px;
@@ -63,7 +63,7 @@
     }
 }
 
-#autocompleteResults {
+#autocompleteResults, #autocompleteResultsM {
     color: white;
     img {
         width: 10vw;
@@ -72,6 +72,7 @@
         min-height: 140px;
     }
 }
+
 
 
 @media (orientation: portrait) {

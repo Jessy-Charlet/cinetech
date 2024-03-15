@@ -1,6 +1,5 @@
 /*** Initialisation des variable */
-var mode = "film"; // Gère l'affichage Film ou Série
-
+var mode = "movie"; // Gère l'affichage Film ou Série
 
 /*** Ouverture et fermeture du menu */
 $("#menu").on("click", function(){
@@ -10,16 +9,15 @@ $("#menu").on("click", function(){
     $("#menu div:last-child").toggleClass("menuRotate3");
 })
 
-
 /*** Gestion des boutons Film et Series*/
 $("#films").on("click", function(){
-    mode = "film";
+    mode = "movie";
     fetchMovies(filmPopulaire, "movieList");
     $(".logo span").text("Films");
 })
 
 $("#series").on("click", function(){
-    mode = "series";
+    mode = "tv";
     fetchMovies(seriePopulaire, "movieList");
     $(".logo span").text("Séries");
 })
