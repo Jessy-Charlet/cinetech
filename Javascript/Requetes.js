@@ -4,10 +4,10 @@ const filmPopulaire = `https://api.themoviedb.org/3/discover/movie?api_key=${api
 const seriePopulaire = `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&append_to_response=images&language=fr-FR&include_image_language=fr,null&sort_by=popularity.desc`;
 const filmAuCine = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&append_to_response=images&language=fr-FR&include_image_language=fr,null&page=1`;
 /*** Elements à cacher au chargement de la page */
-$("#autocompleteResults, #croix").hide();
+$("#autocompleteResults, #croix, #autocompleteResultsM, #croixM").hide();
 
 /*** Elements ou le pointeur change au survol */
-$("#croix, #menu,#croixM").css('cursor', 'pointer');
+$("#croix, #menu, #croixM").css('cursor', 'pointer');
 
 /*** Ouverture fermeture du menu */
 // PC
@@ -84,24 +84,19 @@ async function fetchMovies(recherche, cible, nombre) {
 
 
 // Appeler la fonction pour récupérer les films
-if (mode == "movie") {
-  fetchMovies(filmPopulaire, "movieList", 18);
-  fetchMovies(filmAuCine, "filmAuCine", 1);
-}
-else if (mode == "tv") {
-  fetchMovies(seriePopulaire, "movieList", 18);
-}
-
+  if (sessionStorage.mode == 'movie') {
+    fetchMovies(filmPopulaire, "movieList");
+    $(".logo span").text("Films");
+  }
+  else if (sessionStorage.mode == 'tv') {
+    fetchMovies(seriePopulaire, "movieList");
+    $(".logo span").text("Séries");
+  } else { console.log("erreur")}
 
 /*** Barre de recherche */
 // function autocompletion
 function autocompltetion(menu, cible) {
-  if (mode == "movie") {
-    var filmRecherche = 'https://api.themoviedb.org/3/search/movie';
-  }
-  else if (mode == "tv") {
-    var filmRecherche = 'https://api.themoviedb.org/3/search/tv';
-  }
+    var filmRecherche = `https://api.themoviedb.org/3/search/${sessionStorage.getItem('mode')}`;
   var query = $(menu).val();
 
   if (query.length > 0) {

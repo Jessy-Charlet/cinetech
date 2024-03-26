@@ -1,0 +1,91 @@
+.formulaire {
+
+    #passwordError,
+    #confirmPasswordError,
+    #emailError,
+    #prenomError,
+    #nomError,
+    #connectEmailError,
+    #connectPasswordError {
+        display: none;
+        margin: 0;
+        padding: 0;
+
+        ul {
+            list-style: none;
+            margin: 0 0 1em 0;
+            padding: 0;
+        }
+
+        ul>li {
+            color: red;
+            margin: 0;
+            padding: 0;
+            font-size: 0.8em;
+        }
+
+        ul>li span:before {
+            content: "✖";
+        }
+
+        ul>li.active {
+            color: green;
+        }
+
+        ul>li.active span:before {
+            content: "✅";
+        }
+    }
+
+    input {
+        display: block;
+        border: 1px solid red;
+        padding: 1em 2em;
+        background-color: rgb(252, 214, 219);
+        border-radius: 10px;
+        margin:auto;
+        margin-bottom: 1em;
+    }
+
+    #inscription {
+        display: block;
+        padding: 1em 2em;
+        margin: 0 auto;
+        border: 1px solid grey;
+        background-color: rgb(180, 180, 180);
+        color: grey;
+        border-radius: 10px;
+    }
+
+    #inscription.active {
+        border: 1px solid rgb(53, 167, 202);
+        background-color: rgb(185, 247, 255);
+        color: black;
+        box-shadow: 0 0 10px rgb(53, 167, 202);
+    }
+
+    #inscription.active:hover {
+        background-color: rgb(53, 167, 202);
+        color: white;
+        box-shadow: 0 0 10px rgb(53, 167, 202);
+    }
+
+    input.active {
+        border: 1px solid green;
+        background-color: rgb(211, 255, 211);
+    }
+
+    label {
+        text-transform: uppercase;
+        font-size: 0.7em;
+    }
+
+    form {
+        display: block;
+        margin: 0 auto;
+        width: fit-content;
+        padding: 3em;
+        box-shadow: 0 0 50px rgb(0, 0, 0, 0.3);
+        text-align: center;
+    }
+}

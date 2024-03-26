@@ -22,6 +22,7 @@ h2 {
 
 /*** Barre de navigation*/
 #navTop {
+    box-sizing: border-box;
     position: relative;
     background: linear-gradient(0deg, #1b1b1b, rgb(0, 0, 0));
     display: grid;
@@ -37,7 +38,7 @@ h2 {
         display: none;
     }
 
-    img {
+    #logo {
         height: 10vh;
         float: left;
     }
@@ -51,7 +52,7 @@ h2 {
         vertical-align: center;
     }
 
-    .connection {
+    .connexion {
         justify-self: end;
     }
 
@@ -65,6 +66,22 @@ h2 {
         right: 1em;
         top: 50%;
         translate: 0 -50%;
+    }
+
+    >a {
+        text-decoration: none;
+        line-height: 25px;
+        padding: 0.5vh 1vh;
+        color: white;
+        border: 1px solid white;
+        border-radius: 10px;
+
+        >img {
+            margin-left: 1vh;
+            height: 25px;
+            float: right;
+
+        }
     }
 }
 
@@ -103,19 +120,32 @@ h2 {
         display: none;
     }
 
-    .connection {
+    .connexion {
         display: none;
     }
 
     #croixM {
         display: none;
     }
+    >a {
+        text-decoration: none;
+        line-height: 25px;
+        padding: 0.5vh 1vh;
+        color: white;
+        border: 1px solid white;
+        border-radius: 10px;
+        width: fit-content;
 
-    #autocompleteResultsM {
-        display: none;
+        >img {
+            margin-left: 1vh;
+            height: 25px;
+            float: right;
+
+        }
     }
 
 }
+
 
 /*** Ouverture du menu droite */
 #navRight.navRightOpen {
@@ -157,9 +187,15 @@ h2 {
     background-color: red !important;
 }
 
+/*** Formulaire */
+.formulaire {
+    background-color: white;
+}
+
 /*** Footer */
 Footer {
     color: white;
+    width: 100%;
 }
 
 
@@ -172,7 +208,7 @@ Footer {
     #navTop {
         grid-template-columns: 5fr 1fr;
 
-        .connection {
+        .connexion {
             display: none;
         }
 
@@ -187,8 +223,9 @@ Footer {
 
     #navRight {
 
-        >.connection {
+        .connexion {
             display: block;
+            justify-self: end;
         }
 
         #rechercheM.recherche {
@@ -211,9 +248,11 @@ Footer {
         }
 
         #autocompleteResultsM {
-            display: block;
+            display: flex;
+            flex-wrap: wrap;
         }
-        div:first-child{
+
+        div:first-child {
             position: relative;
             width: 80%;
             margin: auto;

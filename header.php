@@ -11,13 +11,14 @@
     <link rel="stylesheet" href="./CSS/style.css">
     <link rel="stylesheet" href="./CSS/modules.css">
     <link rel="stylesheet" href="./CSS/details.css">
+    <link rel="stylesheet" href="./CSS/connexion.css">
 </head>
 
 <body>
 
     <nav id="navTop">
         <div class="logo">
-            <a href="./index.php"><img src="./Pictures/Logo-primeflix-plus.png" alt="Logo PrimeFlix +" /></a>
+            <a href="./index.php"><img id="logo" src="./Pictures/Logo-primeflix-plus.png" alt="Logo PrimeFlix +" /></a>
             <span>Films</span>
         </div>
         <label for="recherche">Recherche: </label>
@@ -25,21 +26,33 @@
             <input id="recherche" class="recherche" type="texte" name="recherche" autocomplete="off" placeholder="Cherchez un film ou une série">
             <div id="croix">❌</div>
         </div>
-        <button class="connection">Connection</button>
+        <?php
+        if (isset($_COOKIE["conect"]) and $_COOKIE["conect"] == "true") {
+                echo "<a class='connexion' href='./profil.php'>" . $_COOKIE['user'] . "<img src='./Pictures/user.png'/></a>";
+        } else {
+            echo "<a class='connexion' href='./connexion.php'>connexion</a>";
+        }
+        ?>
         <button id="menu">
             <div></div>
             <div></div>
             <div></div>
         </button>
     </nav>
+    <ul id="autocompleteResults">Aucun résultat...</ul>
     <nav id="navRight">
         <div>
             <input id="rechercheM" class="recherche" type="texte" name="rechercheM" autocomplete="off" placeholder="Cherchez un film ou une série">
             <div id="croixM">❌</div>
         </div>
-        <div id="autocompleteResultsM" class="autocomplete-results">Aucun résultat...</div>
+        <ul id="autocompleteResultsM">Aucun résultat...</ul>
         <button id="films">Films</button>
         <button id="series">Séries</button>
-        <button class="connection">Connection</button>
+        <?php
+        if (isset($_COOKIE["conect"]) and $_COOKIE["conect"] == "true") {
+            echo "<a class='connexion' href='./profil.php'>" . $_COOKIE['user'] . "<img src='./Pictures/user.png'/></a>";
+        } else {
+            echo "<a class='connexion' href='./connexion.php'>connexion</a>";
+        }
+        ?>
     </nav>
-    <ul id="autocompleteResults" class="autocomplete-results">Aucun résultat...</ul>

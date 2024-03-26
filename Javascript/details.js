@@ -1,10 +1,10 @@
 /*** On récupère l'ID du film grace au GET de l'URL */
 var parsedUrl = new URL(window.location.href);
 var movieId = parsedUrl.searchParams.get("id");
-
+console.log(movieId);
 /*** Initialisation des variables */
-const detailsMovie = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&append_to_response=images&language=fr-FR&include_image_language=fr,null`;
-const similarMovie = `https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${apiKey}&append_to_response=images&language=fr-FR&include_image_language=fr,null`;
+const detailsMovie = `https://api.themoviedb.org/3/${sessionStorage.getItem('mode')}/${movieId}?api_key=${apiKey}&append_to_response=images&language=fr-FR&include_image_language=fr,null`;
+const similarMovie = `https://api.themoviedb.org/3/${sessionStorage.getItem('mode')}/${movieId}/similar?api_key=${apiKey}&append_to_response=images&language=fr-FR&include_image_language=fr,null`;
 
 /*** Function qui récupère les informations de l'API TMDB */
 async function requeteTMDB(url) {
@@ -20,7 +20,6 @@ async function requeteTMDB(url) {
 
 /*** Affichage du header */
 requeteTMDB(detailsMovie).then(data => {
-  console.log(data);
   $("#block h1").text(data.title);
   $("#block h2").text(data.original_title)
   $("#tagLine").text(data.tagline);
@@ -31,7 +30,6 @@ requeteTMDB(detailsMovie).then(data => {
   data.production_companies.forEach(element => {
     $("#compagnies").append(`<li>${element.name}</li>`)
   });
-  console.log(data.production_companies)
   $("#affiche").attr("src", `https://image.tmdb.org/t/p/w500/${data.poster_path}`);
   $("#affiche").attr("alt", data.title);
   $("#backdrop").css("background-image", `url('https://image.tmdb.org/t/p/w1280/${data.backdrop_path}')`)

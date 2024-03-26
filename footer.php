@@ -18,6 +18,7 @@
 <script src="./Javascript/navigation.js"></script>
 <script src="./Javascript/requetes.js"></script>
 <script src="./Javascript/details.js"></script>
+<script src="./Javascript/connexion.js"></script>
 </body>
 
 </html>
